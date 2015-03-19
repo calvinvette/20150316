@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>  
+<head>
+  <title>User Registration</title>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+
+<!-- Models -->
+<script src="User.js"></script>
+
+<!-- Storage Mechanisms for Models -->
+<script src="LocalStorage.js"></script>
+<script src="RESTStorage.js"></script>
+
+<!-- Controllers -->
+<script src="Register.js"></script>
+
+
+
+
+</head>
+<body>
+<h1>User Registration</h1>
+<h3>Fill in the blanks</h3>
+<form id="form1" action="test" method="post" >
+   <table >
+    <tr>
+      <td>Username</td>
+      <td>
+        <input type="text" name="userName" min="6" max="20"/>
+      </td>
+    </tr>
+    <tr>
+      <td>First Name</td>
+      <td>
+        <input type="text" name="first" size="20" required="true"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Last Name </td>
+      <td>
+        <input type="text" name="last" size="20" required="true"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Street</td>
+      <td>
+        <input type="text" name="street"/>
+      </td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>
+        <input type="text" name="city"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Zipcode</td>
+      <td>
+        <input type="text" name="zip" pattern="\d{5}(-?\d{4})?"/>
+      </td>
+    </tr>
+    <tr>
+      <td>Credit Card Number</td>
+      <td>
+        <input type="text" name="ccn"/>
+      </td>
+    </tr>
+	<tr>
+      <td>E-Mail </td>
+      <td>
+        <input type="text" name="mail" size="20"/>
+      </td>
+    </tr>
+  </table>
+  <table>
+	<tr>
+      <td>
+	  <br/>
+	  </td>
+    </tr>
+	<tr>
+      <td>
+	  <strong>Please indicate your interests. Check off as many as you wish!</strong>
+	  </td>
+    </tr>
+ 	<tr>
+       <td>     
+	     <input TYPE="checkbox" NAME="interests" VALUE="raft"/>Rafting
+         <input TYPE="checkbox" NAME="interests" VALUE="kayak"/>Kayaking
+         <input TYPE="checkbox" NAME="interests" VALUE="run"/>Running
+         <input TYPE="checkbox" NAME="interests" VALUE="hike"/>Hiking
+         <input TYPE="checkbox" NAME="interests" VALUE="camp"/>Camping
+         <input TYPE="checkbox" NAME="interests" VALUE="fish"/>Fishing
+         <input TYPE="checkbox" NAME="interests" VALUE="ski"/>Skiing
+         <input TYPE="checkbox" NAME="interests" VALUE="other"/>Other 
+	   </td>
+    </tr>
+	<tr>
+      <td>
+	  <br/>
+	  </td>
+    </tr>
+   <tr>
+      <td colspan="2">
+              <input type="submit" value="Submit User Information">
+              <input type="Reset" name="Reset">      </td>
+    </tr>
+  </table>
+  <br/>
+</form>
+</body>
+</html> 

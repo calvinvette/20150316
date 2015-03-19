@@ -12,8 +12,9 @@ $(document).ready(function() {
 //     $.ajax({url: 'users.json', method : 'GET'}, function(data, status, xhr) {
 //       users = data; // (data should be auto-JSON.parsed if the server reports mime-type of application/json)
 //     });
-    $.getJSON("users.json", function(data) {
+    $.getJSON("http://mail.nextgened.com/weasley/users.json", function(data) {
       users = data;
+      console.log("Users Downloaded");
     });
   });
 

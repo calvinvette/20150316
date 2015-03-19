@@ -19,7 +19,12 @@ User.prototype.setUserName = function(userName) {
 User.prototype.getFirstName = function() { return this.firstName; }
 User.prototype.setFirstName = function(firstName) { this.firstName = firstName; }
 User.prototype.getLastName = function() { return this.lastName; }
-User.prototype.setLastName = function(lastName) { this.lastName = lastName; }
+User.prototype.setLastName = function(lastName) { 
+    if (lastName != this.lastName) {
+        this.lastName = lastName;     
+        $(document).trigger($.Event("UserChanged"), { user: this, field: "lastName" });
+    }
+}
 User.prototype.getEmail = function() { return this.email; }
 User.prototype.setEmail = function(email) { this.email = email; }
 User.prototype.getCity = function() { return this.city; }

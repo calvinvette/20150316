@@ -22,6 +22,13 @@ $(document).ready(function() {
       console.log("clicked!");
   });
 
+  $(document).on("UserChanged", function(evt, data) {
+    console.log(data.user.firstName + " changed their " + data.field);
+    if (data.field == "lastName") {
+      $("input[name='last']").val(data.user.getLastName());
+    }
+  });
+
   myBody.appendChild(myButton);   
 
 //     document.form1.userName

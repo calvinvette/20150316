@@ -1,3 +1,5 @@
+var myUser = new User();
+
 $(document).ready(function() {
 
   var myBody = $("body")[0];
@@ -25,18 +27,27 @@ $(document).ready(function() {
       console.log("Key down: " + String.fromCharCode(theChar));
   });
 
+
+  $("input[name='last']").on("change", function(evt) {
+    var lastNameValid = this.checkValidity();
+    if (lastNameValid) {
+      myUser.setLastName($(this).val());       
+    } else {
+      console.log("LastName Invalid");
+    }
+  });
+    
+
   $("#form1").submit(function(evt) {
       this.noValidate = true;
       var userNameValid = $(this).find("input[name='userName']")[0].checkValidity();
       var firstNameValid = $(this).find("input[name='first']")[0].checkValidity();
-      var lastNameValid = $(this).find("input[name='last']")[0].checkValidity();
       var zipCodeValid = $(this).find("input[name='zip']")[0].checkValidity();
       var isValid = userNameValid && firstNameValid && lastNameValid && zipCodeValid;
 
-
       var userName = $(this).find("input[name='userName']").val();
       var firstName = $(this).find("input[name='first']").val();
-      var lastName = $(this).find("input[name='last']").val();
+      //var lastName = $(this).find("input[name='last']").val();
       var email = $(this).find("input[name='mail']").val();
       var city = $(this).find("input[name='city']").val();
       var street = $(this).find("input[name='street']").val();
@@ -44,7 +55,7 @@ $(document).ready(function() {
 //       var creditCard = $(this).find("input[name='ccn']").val();
 
 
-      var myUser = new User(userName, firstName, lastName, email);
+      //var myUser = new User(userName, firstName, lastName, email);
       myUser.setStreet(street);
       myUser.setCity(city);
       myUser.setZipCode(zipCode);

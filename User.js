@@ -17,7 +17,7 @@ User.prototype.setUserName = function(userName) {
 }
 
 User.prototype.getFirstName = function() { return this.firstName; }
-User.prototype.setFirsName = function(firstName) { this.firstName = firstName; }
+User.prototype.setFirstName = function(firstName) { this.firstName = firstName; }
 User.prototype.getLastName = function() { return this.lastName; }
 User.prototype.setLastName = function(lastName) { this.lastName = lastName; }
 User.prototype.getEmail = function() { return this.email; }

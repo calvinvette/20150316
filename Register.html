@@ -26,31 +26,31 @@
     <tr>
       <td>Username</td>
       <td>
-        <input type="text" name="userName" min="6" max="20"/>
+        <input type="text" name="userName" min="6" max="20" bindTo="userName"/>
       </td>
     </tr>
     <tr>
       <td>First Name</td>
       <td>
-        <input type="text" name="first" size="20" required="true"/>
+        <input type="text" name="first" size="20" required="true" bindTo="firstName"/>
       </td>
     </tr>
     <tr>
       <td>Last Name </td>
       <td>
-        <input type="text" name="last" size="20" required="true"/>
+        <input type="text" name="last" size="20" required="true" bindTo="lastName"/>
       </td>
     </tr>
     <tr>
       <td>Street</td>
       <td>
-        <input type="text" name="street"/>
+        <input type="text" name="street"  bindTo="street"/>
       </td>
     </tr>
     <tr>
       <td>City</td>
       <td>
-        <input type="text" name="city"/>
+        <input type="text" name="city" data-ng-model="firstName"/>
       </td>
     </tr>
     <tr>

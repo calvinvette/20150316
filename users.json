@@ -1,0 +1,32 @@
+[
+    {
+        "userName": "harrypotter", 
+        "firstName": "Harry", 
+        "lastName": "Potter", 
+        "email": "harry@hogwarts.ac.uk", 
+        "street": "#4 Privet Drive", 
+        "city": "Little Whinging, Surrey", 
+        "zipCode": "12345",
+        "creditCard": "4111-1111-1111-1111"
+    },
+    {
+        "userName": "ronweasley", 
+        "firstName": "Ronald", 
+        "lastName": "Weasley", 
+        "email": "ronw@hogwarts.ac.uk", 
+        "street": "The Burrow", 
+        "city": "Ottery St. Catchpole", 
+        "zipCode": "51413",
+        "creditCard": "5111-1111-1111-1111"
+    },
+    {
+        "userName": "hgranger", 
+        "firstName": "Hermione", 
+        "lastName": "Granger", 
+        "email": "hgranger@hogwarts.ac.uk", 
+        "street": "123 Spinners End", 
+        "city": "London", 
+        "zipCode": "93814",
+        "creditCard": "6111-1111-1111-1111"
+    }     
+]

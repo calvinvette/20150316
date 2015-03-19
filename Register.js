@@ -1,18 +1,20 @@
 var myUser = new User();
+var users = [];
+
 
 $(document).ready(function() {
 
   var myBody = $("body")[0];
-  var myButton = document.createElement("button"); // <button>InnerHTML</button>
-  $(myButton).html("Press Me"); // Setter, overwrites the InnerHTML of the Button
-  $(myButton).append(", Please"); // Appends to the existing InnerHTML (like myButton.innerHTML+=', Please')
-  var contentOfButton = $(myButton).html(); // Getter
-  console.log(contentOfButton);
+  var myButton = document.createElement("button");
+  $(myButton).html("Get Users");
 
   $(myButton).click(function(evt) {
-    var myH1 = document.createElement("h1");
-    $(myH1).html("Hello, DOM");
-    myBody.appendChild(myH1);
+//     $.ajax({url: 'users.json', method : 'GET'}, function(data, status, xhr) {
+//       users = data; // (data should be auto-JSON.parsed if the server reports mime-type of application/json)
+//     });
+    $.getJSON("users.json", function(data) {
+      users = data;
+    });
   });
 
   $(myButton).click(function(evt) {
@@ -22,14 +24,25 @@ $(document).ready(function() {
   myBody.appendChild(myButton);   
 
 //     document.form1.userName
-  bindViewToModel("userName", "userName");
-  bindViewToModel("last", "lastName");
-  bindViewToModel("first", "firstName");
-  bindViewToModel("street", "street");
-  bindViewToModel("city", "city");
-  bindViewToModel("zip", "zipCode");
-  bindViewToModel("ccn", "creditCard");
-  bindViewToModel("mail", "email");
+//   bindViewToModel("userName");
+//   bindViewToModel("last", "lastName");
+//   bindViewToModel("first", "firstName");
+//   bindViewToModel("street");
+//   bindViewToModel("city");
+//   bindViewToModel("zip", "zipCode");
+//   bindViewToModel("ccn", "creditCard");
+//   bindViewToModel("mail", "email");
+  $.each($("form"), function(idx, frm) {
+    $.each($(this).find("input"), function(idx, inputField) {
+
+      var bindTo = $(this).attr("bindTo");
+      if (bindTo) {
+        var fieldName = $(this).attr("name");
+        bindViewToModel(fieldName, bindTo);        
+      }
+    });
+  });
+
 
   $("#form1").submit(function(evt) {
       this.noValidate = true;
@@ -48,6 +61,9 @@ $(document).ready(function() {
 });
 
 function bindViewToModel(fieldName, propertyName) {
+  if (!propertyName) {
+    propertyName = fieldName;
+  }
   $("input[name='" + fieldName + "']").on("change", function(evt) {
     var fieldValid = this.checkValidity();
     if (fieldValid) {

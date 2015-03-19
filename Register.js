@@ -22,108 +22,20 @@ $(document).ready(function() {
   myBody.appendChild(myButton);   
 
 //     document.form1.userName
-  $("input[name='userName']").on("change", function(evt) {
-    var fieldValid = this.checkValidity();
-    if (fieldValid) {
-      myUser.setUserName($(this).val());       
-    } else {
-      console.log("User Name Invalid");
-    }
-  });
-
-
-  $("input[name='last']").on("change", function(evt) {
-    var lastNameValid = this.checkValidity();
-    if (lastNameValid) {
-      myUser.setLastName($(this).val());       
-    } else {
-      console.log("LastName Invalid");
-    }
-  });
-
-  $("input[name='first']").on("change", function(evt) {
-    var fieldValid = this.checkValidity();
-    if (fieldValid) {
-      myUser.setFirstName($(this).val());       
-    } else {
-      console.log("FirstName Invalid");
-    }
-  });
-
-  $("input[name='street']").on("change", function(evt) {
-    var fieldValid = this.checkValidity();
-    if (fieldValid) {
-      myUser.setStreet($(this).val());       
-    } else {
-      console.log("Street Invalid");
-    }
-  });  
-    
-  $("input[name='city']").on("change", function(evt) {
-    var fieldValid = this.checkValidity();
-    if (fieldValid) {
-      myUser.setCity($(this).val());       
-    } else {
-      console.log("City Invalid");
-    }
-  });
-
-  $("input[name='zip']").on("change", function(evt) {
-    var fieldValid = this.checkValidity();
-    if (fieldValid) {
-      myUser.setZipCode($(this).val());       
-    } else {
-      console.log("Zip Code Invalid");
-    }
-  });  
-
-  $("input[name='ccn']").on("change", function(evt) {
-    var fieldValid = this.checkValidity();
-    if (fieldValid) {
-      myUser.setCreditCard($(this).val());       
-    } else {
-      console.log("Credit Card Invalid");
-    }
-  });
-
-  $("input[name='mail']").on("change", function(evt) {
-    var fieldValid = this.checkValidity();
-    if (fieldValid) {
-      myUser.setEmail($(this).val());       
-    } else {
-      console.log("Email Invalid");
-    }
-  });  
+  bindViewToModel("userName", "userName");
+  bindViewToModel("last", "lastName");
+  bindViewToModel("first", "firstName");
+  bindViewToModel("street", "street");
+  bindViewToModel("city", "city");
+  bindViewToModel("zip", "zipCode");
+  bindViewToModel("ccn", "creditCard");
+  bindViewToModel("mail", "email");
 
   $("#form1").submit(function(evt) {
       this.noValidate = true;
-//       var userNameValid = $(this).find("input[name='userName']")[0].checkValidity();
-//       var firstNameValid = $(this).find("input[name='first']")[0].checkValidity();
-//       var zipCodeValid = $(this).find("input[name='zip']")[0].checkValidity();
-//       var isValid = userNameValid && firstNameValid && lastNameValid && zipCodeValid;
-
-//       var userName = $(this).find("input[name='userName']").val();
-//       var firstName = $(this).find("input[name='first']").val();
-      //var lastName = $(this).find("input[name='last']").val();
-//       var email = $(this).find("input[name='mail']").val();
-//       var city = $(this).find("input[name='city']").val();
-//       var street = $(this).find("input[name='street']").val();
-//       var zipCode = $(this).find("input[name='zip']").val();
-//       var creditCard = $(this).find("input[name='ccn']").val();
-
-
-      //var myUser = new User(userName, firstName, lastName, email);
-//       myUser.setStreet(street);
-//       myUser.setCity(city);
-//       myUser.setZipCode(zipCode);
-//       myUser.setCreditCard(creditCard);
-//       myUser.setCreditCard($(this).find("input[name='ccn']").val());
-
-      //if (isValid) {
+      //var isValid = ...
+      //if (isValid) { double-check holistic validity of the myUser object
       if (true) {  
-        // Tightly coupled - change this to EDA later!!!
-        //window.localStorage.setItem("user", JSON.stringify(myUser));    
-        //document.dispatch(new Event("UserRegisteredEvent", myUser));  
         $(document).trigger($.Event("UserRegisteredEvent"), myUser); 
         clearForm(); 
       } else {
@@ -135,6 +47,16 @@ $(document).ready(function() {
 
 });
 
+function bindViewToModel(fieldName, propertyName) {
+  $("input[name='" + fieldName + "']").on("change", function(evt) {
+    var fieldValid = this.checkValidity();
+    if (fieldValid) {
+      myUser[propertyName] = $(this).val();       
+    } else {
+      console.log(propertyName + " Invalid");
+    }
+  });
+}
 
 function clearForm() {
   $("input[name='userName']").val("");

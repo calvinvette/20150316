@@ -1,6 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html ng-app="WeasleyNG">  
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
   <title>User Registration</title>
 <script src="http://code.jquery.com/jquery.min.js"></script>
 
@@ -32,8 +37,33 @@
 </head>
 <body>
 
+<nav class="navbar navbar-fixed-top navbar-default">
+	<div>
+		<a href="#" class="navbar-brand">Weasley's</a>
+	</div>
+	<ul class="navbar-nav nav">
+		<li><a href="#UserList">User List</a></li>
+		<li><a href="#UserRegister">Register New User</a></li>
+	</ul>
+	<ul class="navbar-nav nav navbar-right">
+		<li><a href="#" data-toggle="dropdown">Help<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="#Chat">Chat with Support</a></li>
+				<li><a href="#SiteIssues">Report an issue with the site</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
 
-<div ng-controller="UserListController">
+<div class="container">
+<div class="jumbotron" id="main">
+	<h1>Welcome to Weasley's Wizarding Wheezes!
+</div>
+
+
+
+<div id="UserList" ng-controller="UserListController">
+	<div class="container">
 	#Users: {{users.length}}
 	<table>
 		<tr>
@@ -58,10 +88,11 @@
 			<td>{{user.email}}</td>
 		</tr>
 	</table>
+	</div>
 </div>
 
 
-<div ng-controller="RegisterNGController">
+<div id="UserRegister" ng-controller="RegisterNGController">
 <!--
 Your name: <input ng-model="helloVar"/><br/>
 Hello, {{helloVar}}<br/>
@@ -77,56 +108,57 @@ last Name: {{myUser.lastName}}<br/>
 <h1>User Registration for {{myUser.fullName}}</h1>
 <h3>Fill in the blanks</h3>
 <form id="form1" action="test" method="post" >
-   <table >
-    <tr>
-      <td>Username</td>
-      <td>
-        <input type="text" name="userName" min="6" max="20" ng-model="myUser.userName"/> {{myUser.userName}}
-      </td>
-    </tr>
-    <tr>
-      <td>First Name</td>
-      <td>
-        <input type="text" name="firstName" size="20" required="true" ng-model="myUser.firstName"/> {{myUser.firstName}}
-      </td>
-    </tr>
-    <tr>
-      <td>Last Name </td>
-      <td>
-        <input type="text" name="lastName" size="20" required="true" ng-model="myUser.lastName"/> {{myUser.lastName}}
-      </td>
-    </tr>
-    <tr>
-      <td>Street</td>
-      <td>
-        <input type="text" name="street" ng-model="myUser.street"/>
-      </td>
-    </tr>
-    <tr>
-      <td>City</td>
-      <td>
-        <input type="text" name="city" ng-model="myUser.city"/>
-      </td>
-    </tr>
-    <tr>
-      <td>Zipcode</td>
-      <td>
-        <input type="text" name="zipCode" pattern="\d{5}(-?\d{4})?" ng-model="myUser.zipCode"/>
-      </td>
-    </tr>
-    <tr>
-      <td>Credit Card Number</td>
-      <td>
-        <input type="text" name="creditCard" ng-model="myUser.creditCard"/>
-      </td>
-    </tr>
-	<tr>
-      <td>E-Mail </td>
-      <td>
-        <input type="text" name="eMail" size="20"  ng-model="myUser.email"/>
-      </td>
-    </tr>
-  </table>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-2"><label for="userName">Username</label></div>
+        <div class="col-sm-6"><input type="text" name="userName" min="6" max="20" ng-model="myUser.userName"/></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2"><label for="firstName">First Name</label></div>
+        <div class="col-sm-6">
+        	<input type="text" name="firstName" size="20" required="true" ng-model="myUser.firstName"/>
+        </div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2"><label for="lastName">Last Name</label></div>
+        <div class="col-sm-6">
+			<input type="text" name="lastName" size="20" required="true" ng-model="myUser.lastName"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2"><label for="street">Street</label></div>
+        <div class="col-sm-6">
+			<input type="text" name="street" ng-model="myUser.street"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2"><label for="city">City</label></div>
+        <div class="col-sm-6">
+			<input type="text" name="city" ng-model="myUser.city"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2"><label for="zipCode">Zipcode</label></div>
+        <div class="col-sm-6">
+			<input type="text" name="zipCode" pattern="\d{5}(-?\d{4})?" ng-model="myUser.zipCode"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2"><label for="creditCard">Credit Card Number</label></div>
+        <div class="col-sm-6">
+        	<input type="text" name="creditCard" ng-model="myUser.creditCard"/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2"><label for="email">E-Mail</label></div>
+        <div class="col-sm-6">
+        	<input type="text" name="email" size="20"  ng-model="myUser.email"/>
+		</div>
+	</div>
+</div>
+
+
   <table>
 	<tr>
       <td>
@@ -168,7 +200,7 @@ last Name: {{myUser.lastName}}<br/>
 
 
 
-
+</div>
 
 </body>
 </html> 

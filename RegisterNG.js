@@ -1,4 +1,4 @@
-var weasleyNGApp = angular.module('WeasleyNG', [ ]);
+var weasleyNGApp = weasleyNGApp || angular.module('WeasleyNG');
 
 weasleyNGApp.controller('RegisterNGController', function($scope) {
     $scope.myUser = new User();

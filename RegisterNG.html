@@ -13,14 +13,44 @@
 <script src="RESTStorage.js"></script>
 
 <!-- Controllers -->
+<script src="MainApp.js"></script>
 <script src="RegisterNG.js"></script>
+<script src="UserListController.js"></script>
 </head>
 <body>
+
+
+<div ng-controller="UserListController">
+	#Users: {{users.length}}
+	<table>
+		<tr>
+			<th>userName</th>
+			<th>firstName</th>
+			<th>lastName</th>
+			<th>street</th>
+			<th>city</th>
+			<th>zipCode</th>
+			<th>creditCard</th>
+			<th>email</th>
+		</tr>
+	
+		<tr ng-repeat="user in users">
+			<td>{{user.userName}}</td>
+			<td>{{user.firstName}}</td>
+			<td>{{user.lastName}}</td>
+			<td>{{user.street}}</td>
+			<td>{{user.city}}</td>
+			<td>{{user.zipCode}}</td>
+			<td>{{user.creditCard}}</td>
+			<td>{{user.email}}</td>
+		</tr>
+	</table>
+</div>
+
 
 <div ng-controller="RegisterNGController">
 Your name: <input ng-model="helloVar"/><br/>
 Hello, {{helloVar}}<br/>
-1 + 2 = {{1+2}}<br/>
 <button id="btnPressMe" ng-click="pressMe()">Show User</button>
 <div ng-show="isUserVisible">
 User:<br/>
@@ -78,7 +108,7 @@ last Name: {{myUser.lastName}}<br/>
 	<tr>
       <td>E-Mail </td>
       <td>
-        <input type="text" name="eMail" size="20"  ng-model="myUser.eMail"/>
+        <input type="text" name="eMail" size="20"  ng-model="myUser.email"/>
       </td>
     </tr>
   </table>

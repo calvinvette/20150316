@@ -8,12 +8,14 @@
 <!-- Models -->
 <script src="User.js"></script>
 
-<!-- Storage Mechanisms for Models -->
+<!-- Main needs to be loaded before Angular Controllers, Services, Factories, etc. -->
+<script src="MainApp.js"></script>
+
+<!-- Storage Services for Models -->
 <script src="LocalStorage.js"></script>
 <script src="RESTStorage.js"></script>
 
 <!-- Controllers -->
-<script src="MainApp.js"></script>
 <script src="RegisterNG.js"></script>
 <script src="UserListController.js"></script>
 </head>
